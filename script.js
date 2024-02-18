@@ -1,20 +1,33 @@
+let computer_points = 0;
+let player_points = 0;
+let com_won = false;
+let player_won = false;
 function getComputerChoice(){
-    
-}
-function playRound(playerSelection, computerSelection){
-
+    const choices = ["rock", "paper", "scissors"];
+    const randomIndex = Math.floor(Math.random() * choices.length);
+    return choices[randomIndex];
 }
 
 function playerSelection(){
-
+    let input = prompt('Your TURN: ', );
+    return input.toLocaleLowerCase();
+}
+function playRound(playerSelection, computerSelection){
+    if(playerSelection==computerSelection){
+        console.log('It is a tie');
+    }
+    else if(playerSelection=='rock' && computerSelection=='scissors' || playerSelection=='paper' &&
+    computerSelection=='rock' || playerSelection=='scissors' && computerSelection=='paper'){
+        console.log('Player won the round');
+    }else{
+        console.log('Computer won the round');
+    }
 }
 function playGame(){
     let computer_points = 0;
     let player_points = 0;
     let round_no = 1
     let round_winner = '';
-    let com_won = false;
-    let player_won = false;
     while (round_no <= 5){
         round_winner = playRound(playerSelection, getComputerChoice);
         if(round_winner.includes('Computer')){
@@ -23,20 +36,23 @@ function playGame(){
             player_points++;
 
         }
-        checkTheWinner(player_points, computer_points,com_won, player_won);
-        if (com_won){
-            console.log('Game Over!!!!, Computer won');
-            console.log('Final Score: '+ computer_points + " - "+ player_points);
-            break;
-        }else if(player_won){
-            console.log('Game Over!!!!, Player won');
-            console.log('Final Score: '+ player_points + " - "+ computer_points);
-            break;
-        }
         console.log('Current Score: '+ computer_points + " - "+ player_points);
     }
 }
 
-function checkTheWinner(){
-
+function checkTheWinner(p_points, c_points,c_won,p_won){
+    if (p_points>c_points){
+        p_won = true;
+    }else{
+        c_won = true;
+    }
+}
+playGame();
+checkTheWinner();
+if (com_won){
+    console.log('Game Over!!!!, Computer won');
+    console.log('Final Score: '+ computer_points + " - "+ player_points);
+}else if(player_won){
+    console.log('Game Over!!!!, Player won');
+    console.log('Final Score: '+ player_points + " - "+ computer_points);
 }
