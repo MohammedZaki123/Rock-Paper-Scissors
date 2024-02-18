@@ -40,11 +40,11 @@ function playGame(){
     }
 }
 
-function checkTheWinner(p_points, c_points,c_won,p_won){
-    if (p_points>c_points){
-        p_won = true;
+function checkTheWinner(){
+    if (player_points>computer_points){
+        player_won = true;
     }else{
-        c_won = true;
+        com_won = true;
     }
 }
 playGame();
