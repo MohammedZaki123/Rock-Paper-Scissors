@@ -2,11 +2,11 @@ let computer_points = 0;
 let player_points = 0;
 let com_won = false;
 let player_won = false;
-const choices = ["rock", "paper", "scissors"];
+const CHOICES = ["rock", "paper", "scissors"];
 function getComputerChoice(){
-    let randomIndex = Math.floor(Math.random() * choices.length);
-    console.log('Computer chooses ' + choices[randomIndex]);
-    return choices[randomIndex];
+    let randomIndex = Math.floor(Math.random() * CHOICES.length);
+    console.log('Computer chooses ' + CHOICES[randomIndex]);
+    return CHOICES[randomIndex];
 }
 
 function playerSelection(){
@@ -14,7 +14,7 @@ function playerSelection(){
     do{
         input = prompt("Your Turn:");
     }
-    while(input==null || !(choices.includes(input.toLowerCase())));
+    while(input==null || !(CHOICES.includes(input.toLowerCase())));
     console.log('player chooses ' + input.toLowerCase());
     return input.toLowerCase();
 }
