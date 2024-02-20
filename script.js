@@ -20,7 +20,7 @@ function playerSelection(){
 }
 function playRound(playerSelection, computerSelection){
     if(playerSelection==computerSelection){
-        console.log('It is a tie' );
+        console.log('It is a tie, Play Round Again');
         return 'It is a tie';
     }
     else if(playerSelection=='rock' && computerSelection=='scissors' || playerSelection=='paper' &&
@@ -52,7 +52,7 @@ function playGame(){
             a_tie = true;
             continue;
         }
-        console.log('Current Score: '+ computer_points + "(for Computer) - "+ player_points + " for Player");
+        console.log('Current Score: '+ computer_points + " (for Computer) - "+ player_points + " (for Player)");
         round_no++;
         a_tie = false;
     }
@@ -69,8 +69,7 @@ playGame();
 checkTheWinner();
 if (com_won){
     console.log('Game Over!!!!, Computer won');
-    console.log('Final Score: '+ computer_points + " - "+ player_points);
 }else if(player_won){
     console.log('Game Over!!!!, Player won');
-    console.log('Final Score: '+ player_points + " - "+ computer_points);
 }
+console.log('Final Score: '+ computer_points + " (for Computer) - "+ player_points + " (for Player)");
